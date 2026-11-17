@@ -11,12 +11,18 @@ may only be used for the non-commercial fan project.
 
 ## Classic card artwork
 
-The 1,024 classic card faces are stored under `assets/classic/<deck>/<original-code>.png`.
-The deck directories are `BI`, `C`, `E`, `FL`, `FR`, `G`, `I`, `K`, `NL`, `O`,
-`PI`, `WA`, `WM`, and `Z`. Original filenames and PNG bytes are preserved from
-the `agricolaoldnice` source used by the main repository's classic-card import.
-Card identities and source provenance are recorded in the main repository's
-`reference/classic/source-cards.json` and `docs/classic/migration-manifest.json`.
+The 1,024 classic card faces are stored under `assets/classic/<deck>/<code>.png`.
+Classic deck IDs prepend `C` to the original deck; numbers have three digits.
+The directories are `CBI`, `CC`, `CE`, `CFL`, `CFR`, `CG`, `CI`, `CK`, `CNL`,
+`CO`, `CPI`, `CWA`, `CWM`, and `CZ`. For example, `E11.png` becomes
+`assets/classic/CE/CE011.png`, `WM001.png` becomes
+`assets/classic/CWM/CWM001.png`, and `C01.png` becomes
+`assets/classic/CC/CC001.png`.
+
+The PNG bytes from `agricolaoldnice` are unchanged.
+[`classic-card-sources.json`](classic-card-sources.json) records every original
+filename, previous repository path, new path, and SHA-256. It provides the
+mapping for the application's classic-card importer and source manifest.
 
 The main application consumes these images through its pinned public asset
 contract; they are not bundled in the application repository. Publish this
